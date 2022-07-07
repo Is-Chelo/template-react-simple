@@ -1,11 +1,20 @@
-.my-container {
+/* .my-container {
   display: flex;
   margin-top: 10px;
+} */
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.my-btn {
+  background: linear-gradient(to right, #7460fc, #d34fff);
+  color: white;
+  border-radius: 0.5rem;
 }
 
 .link {
   text-decoration: none;
-  color: inherit;
+  color          : inherit;
 }
 
 .home {
@@ -13,32 +22,33 @@
 }
 
 .my-card {
-  margin: 20px;
-  padding: 20px;
+  margin            : 20px;
+  padding           : 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow        : 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  height            : 100vh;
 }
 
 .product {
-  flex: 4;
+  flex   : 4;
   padding: 20px;
 }
 
 .productTitleContainer {
-  display: flex;
-  align-items: center;
+  display        : flex;
+  align-items    : center;
   justify-content: space-between;
 }
 
 .productAddButton {
-  width: 80px;
-  border: none;
-  padding: 5px;
+  width           : 80px;
+  border          : none;
+  padding         : 5px;
   background-color: teal;
-  color: white;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+  color           : white;
+  border-radius   : 5px;
+  font-size       : 16px;
+  cursor          : pointer;
 }
 
 .productTop {
@@ -51,22 +61,22 @@
 }
 
 .productTopRight {
-  padding: 20px;
-  margin: 20px;
+  padding           : 20px;
+  margin            : 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow        : 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
 .productInfoImg {
-  width: 40px;
-  height: 40px;
+  width        : 40px;
+  height       : 40px;
   border-radius: 50%;
-  object-fit: cover;
-  margin-right: 20px;
+  object-fit   : cover;
+  margin-right : 20px;
 }
 
 .productInfoTop {
-  display: flex;
+  display    : flex;
   align-items: center;
 }
 
@@ -79,8 +89,8 @@
 }
 
 .productInfoItem {
-  width: 150px;
-  display: flex;
+  width          : 150px;
+  display        : flex;
   justify-content: space-between;
 }
 
@@ -89,63 +99,63 @@
 }
 
 .productBottom {
-  padding: 20px;
-  margin: 20px;
+  padding           : 20px;
+  margin            : 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow        : 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
 .productForm {
-  display: flex;
+  display        : flex;
   justify-content: space-between;
 }
 
 .productFormLeft {
-  display: flex;
+  display       : flex;
   flex-direction: column;
 }
 
-.productFormLeft > label {
+.productFormLeft>label {
   margin-bottom: 10px;
-  color: gray;
+  color        : gray;
 }
 
-.productFormLeft > input {
+.productFormLeft>input {
   margin-bottom: 10px;
-  border: none;
-  padding: 5px;
+  border       : none;
+  padding      : 5px;
   border-bottom: 1px solid gray;
 }
 
-.productFormLeft > select {
+.productFormLeft>select {
   margin-bottom: 10px;
 }
 
 .productUploadImg {
-  width: 100px;
-  height: 100px;
+  width        : 100px;
+  height       : 100px;
   border-radius: 10px;
-  object-fit: cover;
-  margin-right: 20px;
+  object-fit   : cover;
+  margin-right : 20px;
 }
 
 .productFormRight {
-  display: flex;
-  flex-direction: column;
+  display        : flex;
+  flex-direction : column;
   justify-content: space-around;
 }
 
 .productUpload {
-  display: flex;
+  display    : flex;
   align-items: center;
 }
 
 .productButton {
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
+  border          : none;
+  padding         : 5px;
+  border-radius   : 5px;
   background-color: darkblue;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+  color           : white;
+  font-weight     : 600;
+  cursor          : pointer;
 }

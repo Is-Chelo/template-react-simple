@@ -3,7 +3,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Peticion from "../../helpers/Peticiones";
-
+import './materias.css'
 const List = () => {
   const [data, setData] = useState();
 
@@ -13,47 +13,40 @@ const List = () => {
 
   let datos = new Peticion("/materias").getData();
   datos = !!datos && datos.response;
-
+  console.log(datos)
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 100 },
+    { field: "nombre", headerName: "Nombre", width: 400 },
+    { field: "sigla", headerName: "Sigla", width: 300 },
     {
-      field: "product",
-      headerName: "Product",
-      width: 200,
+      field: "estado",
+      headerName: "Estado",
+      width: 300,
       renderCell: (params) => {
-        return (
-          <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
-            {params.row.name}
-          </div>
-        );
-      },
-    },
-    { field: "stock", headerName: "Stock", width: 200 },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
-    {
-      field: "price",
-      headerName: "Price",
-      width: 160,
+        console.log()
+        return params.row.estado ? <span className="spanBack Approved">SI</span> : <span className="spanBack Declined">No</span>
+      }
     },
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 300,
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/product/" + params.row.id}>
-              <button className="productListEdit">Edit</button>
+            <Link to={`/materias/` + params.row.id}>
+              <button className="btn btn-outline-primary">
+                <i class="bi bi-pencil-square"></i>
+              </button>
             </Link>
-            <DeleteOutline
-              className="productListDelete"
+
+            <button
+              className="m-3 btn btn-outline-danger"
               onClick={() => handleDelete(params.row.id)}
-            />
+            >
+              <i class="bi bi-trash"></i>
+
+            </button>
           </>
         );
       },
@@ -62,42 +55,35 @@ const List = () => {
 
   return (
     <>
-      <div className="productTitleContainer">
-        <h1 className="productTitle">Lista de Materias</h1>
-        <Link to="/newproduct">
-          <button className="productAddButton">Create</button>
-        </Link>
-      </div>
+      <div className="my-card">
 
-      {/* Listamos las materias */}
-      <div className="productList">
+        <div className="row mb-3">
+          <div className="productTitleContainer">
+            <h2 className="productTitle">Lista de Materias</h2>
+            <Link to="/materias/add">
+              <button className="productAddButton">Create</button>
+            </Link>
+          </div>
+          <div className="row">
+          </div>
+        </div>
+
+
+
+        {/* Listamos las materias */}
         {!!datos && (
           <DataGrid
-            rows={[
-              {
-                id: 1,
-                name: "Apple Airpods",
-                img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-                stock: 123,
-                status: "active",
-                price: "$120.00",
-              },
-              {
-                id: 2,
-                name: "Apple Airpods",
-                img: "https://images.pexels.com/photos/7156886/pexels-photo-7156886.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-                stock: 123,
-                status: "active",
-                price: "$120.00",
-              },
-            ]}
-            disableSelectionOnClick
+            rows={datos}
+            style={{ height: '90%' }}
+            // disableSelectionOnClick
             columns={columns}
             pageSize={8}
-            checkboxSelection
+          // checkboxSelection
           ></DataGrid>
         )}
       </div>
+
+
     </>
   );
 };

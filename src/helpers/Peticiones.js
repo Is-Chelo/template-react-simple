@@ -8,7 +8,7 @@ class Peticion {
   constructor(baseUrl) {
     this.baseUrl = "http://localhost:7000/api/v1" + baseUrl;
     // this.token = localStorage.getItem("token");
-    this.token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tYnJlIjoiSm9obiIsInVzdWFyaW8iOiJEaXJlYyIsImNvcnJlbyI6ImpvaG5jZW5hQGdtYWlsLmNvbSIsInJvbCI6MSwiaWF0IjoxNjU3MTM1MTQ5LCJleHAiOjE2NTcxNDk1NDl9.h9gXsCiwxPGG-VVEl3eCQL7pdaJUm2dZU5Ecn7aIMCg`;
+    this.token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tYnJlIjoiSm9obiIsInVzdWFyaW8iOiJEaXJlYyIsImNvcnJlbyI6ImpvaG5jZW5hQGdtYWlsLmNvbSIsInJvbCI6MSwiaWF0IjoxNjU3MTYxODQ2LCJleHAiOjE2NTcxNzYyNDZ9.Ob931W5BKCjqA9Kqr09ZDJZ3qMLscxajiWZTTFPrWTY`;
   }
 
   //   * Funcion para traer los datos de un endpoint

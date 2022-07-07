@@ -10,7 +10,6 @@ import { Link, NavLink } from "react-router-dom";
 import Peticion from "../../helpers/Peticiones";
 export default function Sidebar() {
   const data = new Peticion("/principal").getData();
-  // console.log(data);
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -25,7 +24,7 @@ export default function Sidebar() {
             </Link>
             {!!data &&
               Object.values(data).map((item) => {
-                const url = item.Modulo.url.split("/").pop();
+                const url = item.modulo.url.split("/").pop();
                 return (
                   <NavLink
                     key={item.id}
@@ -37,7 +36,7 @@ export default function Sidebar() {
                   >
                     <li className="sidebarListItem">
                       <PermIdentity className="sidebarIcon" />
-                      {item.Modulo.nombre}
+                      {item.modulo.nombre}
                     </li>
                   </NavLink>
                 );
