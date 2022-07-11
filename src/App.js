@@ -1,13 +1,11 @@
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
 import "./App.css";
-import Home from "./pages/home/Home";
+import "./components/react-notifications/notificacion.css";
+
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import UserList from "./pages/userList/UserList";
 // import User from "./pages/user/User";
 // import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
+
 // import NewProduct from "./pages/newProduct/NewProduct";
 
 // function App() {
@@ -47,30 +45,20 @@ import Product from "./pages/product/Product";
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import MateriaRoutes from "./pages/materias/MateriaRoutes";
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import Update from "./pages/materias/Update";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import Login from "./pages/Login/Login";
+import { NotificationContainer } from "./components/react-notifications";
+import Principal from "./pages/Login/Principal/Principal";
 
 const App = () => {
   return (
     <>
-      <Topbar />
-      <div className="row m-0 p-0">
-        <div className="col-2 sidebar">
-          <Sidebar />
-        </div>
-        <div className="col-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/materias/*" element={<MateriaRoutes />} />
-            <Route path="/users" element={<UserList />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/product" element={<Product />} />
-          </Routes>
-        </div>
-      </div>
+      <NotificationContainer />
 
+      <Routes>
+        <Route path="/singIn" index element={<Login />} />
+        <Route path="/*" element={<Principal />} />
+      </Routes>
     </>
   );
 };

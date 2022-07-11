@@ -24,7 +24,7 @@ export default function Sidebar() {
             </Link>
             {!!data &&
               Object.values(data).map((item) => {
-                const url = item.modulo.url.split("/").pop();
+                const url = item.Modulo.url.split("/").pop();
                 return (
                   <NavLink
                     key={item.id}
@@ -36,7 +36,7 @@ export default function Sidebar() {
                   >
                     <li className="sidebarListItem">
                       <PermIdentity className="sidebarIcon" />
-                      {item.modulo.nombre}
+                      {item.Modulo.nombre}
                     </li>
                   </NavLink>
                 );

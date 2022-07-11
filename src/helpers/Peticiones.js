@@ -1,14 +1,13 @@
 // Clase para realizar las peticiones
 import { useEffect, useState } from "react";
-// import { servicePath } from '../constants/defaultValues'
-// import Notification from './Notification'
+import Notification from "./Notification";
 
 class Peticion {
   /* eslint-disable */
   constructor(baseUrl) {
     this.baseUrl = "http://localhost:7000/api/v1" + baseUrl;
     // this.token = localStorage.getItem("token");
-    this.token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tYnJlIjoiSm9obiIsInVzdWFyaW8iOiJEaXJlYyIsImNvcnJlbyI6ImpvaG5jZW5hQGdtYWlsLmNvbSIsInJvbCI6MSwiaWF0IjoxNjU3MTYxODQ2LCJleHAiOjE2NTcxNzYyNDZ9.Ob931W5BKCjqA9Kqr09ZDJZ3qMLscxajiWZTTFPrWTY`;
+    this.token = localStorage.getItem("token_colegio");
   }
 
   //   * Funcion para traer los datos de un endpoint
@@ -72,7 +71,7 @@ class Peticion {
           },
         });
         const message = await res.json();
-        Notification(res.status, message, history);
+        Notification(res.status, message, null);
       } catch (error) {
         Notification(500, { message: "Error in Connection" });
       }
