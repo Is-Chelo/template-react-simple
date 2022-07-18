@@ -57,6 +57,7 @@ const App = () => {
 
       <Routes>
         <Route path="/singIn" index element={<Login />} />
+        <Route path="/principal/*" element={<Principal />} />
         <Route path="/*" element={<Principal />} />
       </Routes>
     </>

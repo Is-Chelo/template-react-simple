@@ -46,7 +46,9 @@
 .titulo {
   padding-left: 20px;
 }
-
+i{
+  margin-right: 10px;
+}
 .my-card {
   margin: 20px;
   padding: 20px;
@@ -61,10 +63,26 @@
   padding: 20px;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
-  height: 50vh;
+  min-height: 50vh;
   width: 50vw;
   z-index: 100;
   padding: 50px;
+}
+
+.my-card-cursos {
+  margin: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  min-height: 15vh;
+  width: 15vw;
+  z-index: 100;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: #b4b4b417; 
+  flex-direction: column;
 }
 
 .btnAgregar {

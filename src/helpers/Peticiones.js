@@ -114,6 +114,7 @@ class Peticion {
         );
         const message = await res.json();
         Notification(res.status, message, history);
+        location.reload()
       } catch (error) {
         Notification(500, { message: "Error in Connection" });
       }

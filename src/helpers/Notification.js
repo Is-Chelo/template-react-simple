@@ -22,10 +22,10 @@ const Notification = (status, message, history = null) => {
       null,
       "mb-3"
     );
-    if (history)
-      setTimeout(() => {
-        history.goBack();
-      }, 1000);
+
+    // setTimeout(() => {
+    //   location.reload()
+    // }, 1000);
   }
 
   if ((status > 400 && status < 403) || (status >= 404 && status < 500))

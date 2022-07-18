@@ -25,7 +25,15 @@ const Update = () => {
     <>
       {data ? (
         <div className="contenedor">
-          <h3 className="titulo">Actualizar {form}</h3>
+        <div
+            style={{ "paddingRight": "100px" }}
+            className="d-flex justify-content-between"
+          >
+            <h3 className="titulo">Actualizar {form}</h3>
+            <button className="productAddButton" onClick={() => navigate(-1)}>
+              Cancelar
+            </button>
+          </div>
           <hr />
           <div className="medio">
             <div className="my-card-form">
