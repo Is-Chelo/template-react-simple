@@ -6,17 +6,17 @@ const List = () => {
   const [data, setData] = useState(false);
 
   const handleDelete = (id) => {
-    new Peticion(`/materias`).deleteItem(id)
+    new Peticion(`/cursos`).deleteItem(id)
     setData(!data)
   };
 
-  let datos = new Peticion("/materias").getData(data);
+  let datos = new Peticion("/cursos").getData(data);
   datos = !!datos && datos.response;
-  console.log(datos)
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "nombre", headerName: "Nombre", width: 400 },
-    { field: "sigla", headerName: "Sigla", width: 300 },
+    { field: "nombre", headerName: "Nombre", width: 300 },
+    { field: "paralelo", headerName: "Paralelo", width: 300 },
+    { field: "nivel", headerName: "Nivel", width: 300 },
+
     {
       field: "estado",
       headerName: "Estado",
@@ -33,7 +33,7 @@ const List = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/materias/` + params.row.id}>
+            <Link to={`/cursos/` + params.row.id}>
               <button className="btn btn-outline-primary">
                 <i className="bi bi-pencil-square"></i>
               </button>
@@ -41,7 +41,7 @@ const List = () => {
 
             <button
               className="m-3 btn btn-outline-danger"
-              onClick={() =>  handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row.id)}
             >
               <i className="bi bi-trash"></i>
 
@@ -58,8 +58,8 @@ const List = () => {
 
         <div className="row mb-3">
           <div className="productTitleContainer">
-            <h2 className="productTitle">Lista de Materias</h2>
-            <Link to="/materias/add">
+            <h2 className="productTitle">Lista de curso</h2>
+            <Link to="/cursos/add">
               <button className="productAddButton">Create</button>
             </Link>
           </div>

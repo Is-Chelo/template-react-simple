@@ -4,13 +4,13 @@ import Agregar from "./Agregar";
 import List from "./List";
 import Update from "./Update";
 
-const MateriaRoutes = () => {
+
+const CursoRoutes = () => {
   return (
     <>
 
       <Routes>
         <Route to="/" index element={<List />} />
-        
         <Route path="/:id" element={<Update />} />
         <Route path="/:id" element={<Update />} />
         <Route path="/add" element={<Agregar />} />
@@ -21,4 +21,4 @@ const MateriaRoutes = () => {
   );
 };
 
-export default MateriaRoutes;
+export default CursoRoutes;

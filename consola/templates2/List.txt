@@ -6,17 +6,15 @@ const List = () => {
   const [data, setData] = useState(false);
 
   const handleDelete = (id) => {
-    new Peticion(`/materias`).deleteItem(id)
+    new Peticion(`{endpoint}`).deleteItem(id)
     setData(!data)
   };
 
-  let datos = new Peticion("/materias").getData(data);
+  let datos = new Peticion("{endpoint}").getData(data);
   datos = !!datos && datos.response;
   console.log(datos)
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "nombre", headerName: "Nombre", width: 400 },
-    { field: "sigla", headerName: "Sigla", width: 300 },
+    {campos},
     {
       field: "estado",
       headerName: "Estado",
@@ -33,7 +31,7 @@ const List = () => {
       renderCell: (params) => {
         return (
           <>
-            <Link to={`/materias/` + params.row.id}>
+            <Link to={`{endpoint}/` + params.row.id}>
               <button className="btn btn-outline-primary">
                 <i className="bi bi-pencil-square"></i>
               </button>
@@ -58,8 +56,8 @@ const List = () => {
 
         <div className="row mb-3">
           <div className="productTitleContainer">
-            <h2 className="productTitle">Lista de Materias</h2>
-            <Link to="/materias/add">
+            <h2 className="productTitle">Lista de {form}</h2>
+            <Link to="{endpoint}/add">
               <button className="productAddButton">Create</button>
             </Link>
           </div>
