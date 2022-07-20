@@ -30,11 +30,66 @@ const ListaEstudiantes = () => {
         new Peticion("/calificaciones").createItem(calificaciones);
     }
 
+    // Notificacion al whatsapp
+    const notificacionAlWhatsapp = async (data) => {
+        console.log(data);
+        const filterNotas = Object.values(notas).filter(e => e.idEstudiante == data.id)
+        console.log(filterNotas);
+        const promedio = (filterNotas[0].ser + filterNotas[0].saber + filterNotas[0].decidir + filterNotas[0].hacer + filterNotas[0].autoEvaluacion) / 5
+        const textEnviar = `
+        LAS CALIFICACIONES del estudiante : ${data.nombre} ${data.apellidoPaterno} ${data.apellidoMaterno}\n
+        Materia: ${filterNotas[0].nombreMateria}\n
+        SER:${filterNotas[0].ser}
+        SABER:${filterNotas[0].saber}
+        HACER:${filterNotas[0].hacer}
+        DECIDIR:${filterNotas[0].decidir}
+        AUTOEVALUACION:${filterNotas[0].autoEvaluacion}\n
+        Promedio: ${promedio}
+        `
+        const template = {
+            "messaging_product": "whatsapp",
+            "to": `591${data.telefono}`,
+            "type": "template",
+            "template": {
+                "name": "hello_world",
+                "language": {
+                    "code": "en_US"
+                }
+            }
+        }
+
+        const mensage = {
+            "messaging_product": "whatsapp",
+            "to": `591${data.telefono}`,
+            "type": "text",
+            "text": {
+                "preview_url": false,
+                "body": `${textEnviar}`
+            }
+        }
+
+        const response = await fetch(`https://graph.facebook.com/v13.0/111344541647897/messages`,
+            {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(mensage),
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer EAAIASGA29LsBAJryuRelWxnzfkIb4WGwaMZBAe37jUEmE6LWuoJvkUc0it9Yo379kjqbMUZBX6NW7nHe5VqngB60Yrl09KucUEDE78DxJb6yiEHdtrOrsc1AZBkgj1iPWLY1RIk4wjP8a4AoVA6ZBBS62JvAJssH7dqnQoZBZAxQ1dm0ZC6fOmP4r665hB2cjfZAfOAXPGh7QwZDZD`
+                }
+            }
+        )
+        const dataResponse = await response.json()
+        if (dataResponse.messaging_product !== undefined) {
+            // guardamos notificacion de whatsapp
+        }
+        console.log(dataResponse);
+    }
+
     const columns = [
         {
             field: "nombre", headerName: "Nombre Completo", width: 300,
             renderCell: (params) => {
-                return <span>{params.row.nombre} {params.row.apellidoPaterno} {params.row.apellidoPaterno}</span>
+                return <span>{params.row.nombre} {params.row.apellidoPaterno} {params.row.apellidoMaterno}</span>
             }
         },
         {
@@ -138,8 +193,11 @@ const ListaEstudiantes = () => {
             renderCell: (params) => {
                 return (
                     <>
-                        <button className="btn btn-outline-success" onClick={() => registrar(params.row)}>
+                        <button className="btn btn-outline-primary mr-3" onClick={() => registrar(params.row)}>
                             <i className="bi bi-check-circle m-0"></i>
+                        </button>
+                        <button className="btn btn-outline-success" onClick={() => notificacionAlWhatsapp(params.row)}>
+                            <i className="bi bi-whatsapp m-0"></i>
                         </button>
                     </>
                 );
